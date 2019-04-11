@@ -14,7 +14,7 @@
     <form action="/up/submit" @submit.prevent="getFormValues" id="cheer">
 
         <div class="container-fluid mt-2">
-            <my-item v-for="(row, index) in rows" :row="row" v-on:remove="removeRow(index)"></my-item>
+            <my-item v-for="(row, index) in rows" :row="row" :key="row.row" v-on:remove="removeRow(index)"></my-item>
         </div>
 
         <div class="container-fluid mt-2">
@@ -139,6 +139,7 @@
             groups: '{{.group}}',
             dfgs: {},
             render: true,
+            cnt: 0,
         },
         async mounted() {
             if (this.groups != '') {
@@ -159,7 +160,7 @@
                 $('#plus1').removeAttr('id');
                 $('#plus2').removeAttr('id');
                 $('#plus3').removeAttr('id');
-                this.rows.push({row: ''});
+                this.rows.push({row: (this.cnt++)});
             },
             removeRow(index) {
                 this.rows.splice(index, 1);
