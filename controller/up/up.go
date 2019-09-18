@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/arapov/cheert/lib/flight"
-	"github.com/arapov/cheert/model/up"
+	"github.com/apevec/cheert/lib/flight"
+	"github.com/apevec/cheert/model/up"
 
 	"github.com/blue-jay-fork/core/router"
 )

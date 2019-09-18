@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"net/http/pprof"
 
-	"github.com/arapov/cheert/middleware/acl"
+	"github.com/apevec/cheert/middleware/acl"
 
 	"github.com/blue-jay-fork/core/router"
 

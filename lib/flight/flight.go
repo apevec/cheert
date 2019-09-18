@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"sync"
 
-	"github.com/arapov/cheert/lib/env"
+	"github.com/apevec/cheert/lib/env"
 
 	"github.com/blue-jay-fork/core/flash"
 	"github.com/blue-jay-fork/core/form"

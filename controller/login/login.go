@@ -4,9 +4,9 @@ package login
 import (
 	"net/http"
 
-	"github.com/arapov/cheert/lib/flight"
-	"github.com/arapov/cheert/middleware/acl"
-	"github.com/arapov/cheert/model/user"
+	"github.com/apevec/cheert/lib/flight"
+	"github.com/apevec/cheert/middleware/acl"
+	"github.com/apevec/cheert/model/user"
 
 	"github.com/blue-jay-fork/core/flash"
 	"github.com/blue-jay-fork/core/form"

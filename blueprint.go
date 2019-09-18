@@ -5,8 +5,8 @@ import (
 	"log"
 	"runtime"
 
-	"github.com/arapov/cheert/lib/boot"
-	"github.com/arapov/cheert/lib/env"
+	"github.com/apevec/cheert/lib/boot"
+	"github.com/apevec/cheert/lib/env"
 
 	"github.com/blue-jay-fork/core/router"
 	"github.com/blue-jay-fork/core/server"

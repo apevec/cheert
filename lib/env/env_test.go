@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/arapov/cheert/lib/env"
+	"github.com/apevec/cheert/lib/env"
 )
 
 // TestPath ensures path is set properly.

@@ -1,4 +1,4 @@
-# [Cheert](https://github.com/arapov/cheert)
+# [Cheert](https://github.com/apevec/cheert)
 
 ## Run in OpenShift
 ```

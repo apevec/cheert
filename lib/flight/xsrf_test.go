@@ -5,7 +5,7 @@ import (
 	"log"
 	"testing"
 
-	"github.com/arapov/cheert/lib/flight"
+	"github.com/apevec/cheert/lib/flight"
 	"github.com/blue-jay-fork/core/xsrf"
 )
 

@@ -6,9 +6,9 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/arapov/cheert/lib/env"
-	"github.com/arapov/cheert/lib/flight"
-	flashmod "github.com/arapov/cheert/viewmodify/flash"
+	"github.com/apevec/cheert/lib/env"
+	"github.com/apevec/cheert/lib/flight"
+	flashmod "github.com/apevec/cheert/viewmodify/flash"
 
 	"github.com/blue-jay-fork/core/flash"
 	"github.com/blue-jay-fork/core/session"

@@ -6,8 +6,8 @@ import (
 	"os"
 	"path"
 
-	"github.com/arapov/cheert/controller/status"
-	"github.com/arapov/cheert/lib/flight"
+	"github.com/apevec/cheert/controller/status"
+	"github.com/apevec/cheert/lib/flight"
 
 	"github.com/blue-jay-fork/core/router"
 )

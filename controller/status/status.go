@@ -5,7 +5,7 @@ package status
 import (
 	"net/http"
 
-	"github.com/arapov/cheert/lib/flight"
+	"github.com/apevec/cheert/lib/flight"
 	"github.com/blue-jay-fork/core/router"
 )
 

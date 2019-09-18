@@ -5,7 +5,7 @@ package acl
 import (
 	"net/http"
 
-	"github.com/arapov/cheert/lib/flight"
+	"github.com/apevec/cheert/lib/flight"
 )
 
 // DisallowAuth does not allow authenticated users to access the page.

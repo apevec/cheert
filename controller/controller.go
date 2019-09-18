@@ -2,10 +2,10 @@
 package controller
 
 import (
-	"github.com/arapov/cheert/controller/about"
-	"github.com/arapov/cheert/controller/home"
-	"github.com/arapov/cheert/controller/static"
-	"github.com/arapov/cheert/controller/up"
+	"github.com/apevec/cheert/controller/about"
+	"github.com/apevec/cheert/controller/home"
+	"github.com/apevec/cheert/controller/static"
+	"github.com/apevec/cheert/controller/up"
 )
 
 // LoadRoutes loads the routes for each of the controllers.
