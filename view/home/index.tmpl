@@ -30,7 +30,6 @@
                             <input type="hidden" name="_token" value="{{$.token}}">
                             <input type="hidden" id="id" name="id" value="">
                             <input type="hidden" id="uid" name="uid" value="">
-                            <input type="hidden" id="group" name="group" value="">
                         </form>
                     </div>
                 </div>
@@ -68,13 +67,13 @@ $.typeahead({
                 url: "http://rhos-test.op.redhat.com/api/v1/query" +
                     "?objectClass=rhatPerson" +
                     "&|rhatCostCenter=716,563,667,650,584,586,654,675,677,710,676,713,700,413,656,717,706,655,160,708,118,701,653,719,657" +
-                    "&attributes=uid,cn,rhatCostCenter,rhatNickName,memberOf",
+                    "&attributes=uid,cn,rhatNickName",
                 path: "data"
             }
         }
     },
     callback: {
-        onPopulateSource: function (node, data, group, path) {
+        onPopulateSource: function (node, data, path) {
             node[0].disabled = false;
             node[0].placeholder="Enter your name, account or ircnick";
 
@@ -83,7 +82,6 @@ $.typeahead({
         onClick: function (node, a, item, event) {
             $('#id').val(item.cn);
             $('#uid').val(item.uid);
-            $('#group').val(item.memberOf);
             $('#name').val(item.cn);
         }
     }

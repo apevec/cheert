@@ -13,10 +13,6 @@
 <div id="app">
     <form action="/up/submit" @submit.prevent="getFormValues" id="cheer">
 
-        <div v-for="groupid in dfgs">
-            <dfg :groupid="groupid"></dfg>
-        </div>
-
         <div class="container-fluid mt-2">
             <my-item v-for="(row, index) in rows" :row="row" v-on:remove="removeRow(index)"></my-item>
         </div>
@@ -74,46 +70,6 @@
     </div>
 </template>
 
-<template id="dfg">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="card w-100 mt-2">
-                <div class="card-header">${group.cn[0]}</div>
-                <div class="card-body">
-                    <div v-if="loading"><i class="fa fa-spinner fa-spin"></i> Loading...</div>
-                    <div v-else-if="members.length < 2"> No other members in this group. </div>
-                    <div v-else v-for="(member, i) in members">
-                        <div v-if="member.uid[0] != '{{.uid}}'" class="form-row mt-1">
-                            <div class="col-2">
-                                <input type="text" name="uid" class="form-control" :value="member.uid[0]" onfocus="this.blur();" readonly>
-                            </div>
-                            <div class="col-3">
-                                <input type="text" class="form-control" :value="member.cn[0]" onfocus="this.blur();" readonly>
-                            </div>
-                            <div class="col-2 text-center">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-secondary">
-                                        <input type="radio" :name="'plus['+member.uid[0]+']'" value="1" autocomplete="off">+1
-                                    </label>
-                                    <label class="btn btn-secondary">
-                                        <input type="radio" :name="'plus['+member.uid[0]+']'" value="2" autocomplete="off">+2
-                                    </label>
-                                    <label class="btn btn-secondary">
-                                        <input type="radio" :name="'plus['+member.uid[0]+']'" value="3" autocomplete="off">+3
-                                    </label>
-                                </div>
-                            </div> 
-                            <div class="col">
-                                <input type="text" name="praise" class="form-control" :placeholder="'Enter your praise to ' + member.cn[0] + '...'">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</template>
-
 <script>
     Vue.component('my-item', {
         props: ['row'],
@@ -146,7 +102,7 @@
                         ajax: {
                                 url: "http://rhos-test.op.redhat.com/api/v1/query" +
                                     "?objectClass=rhatPerson&|rhatPersonType=Employee,International%20Local%20Hire&|rhatCostCenter=716,563,667,650,584,586,654,675,677,710,676,713,700,413,656,717,706,655,160,708,118,701,653,719,657" +
-                                    "&attributes=uid,cn,rhatCostCenter,rhatNickName,memberOf",
+                                    "&attributes=uid,cn,rhatNickName",
                                 path: "data"
                         }
                     }
@@ -172,30 +128,6 @@
             remove() {
                 this.$emit('remove');
             },
-        }
-    });
-
-    Vue.component('dfg', {
-        template: "#dfg",
-        delimiters: ['${','}'],
-        props: ['groupid'],
-        data() {
-            return {
-                group: {
-                    cn: [],
-                    description: [],
-                },
-                members: [{
-                    uid: [],
-                    cn: [],
-                }],
-                loading: true,
-            }
-        },
-        async mounted() {
-            this.group = (await this.$http.get('http://rhos-test.op.redhat.com/api/v1/query?objectClass=rhatRoverGroup&cn='+this.groupid+'&attributes=cn,description')).body.data[0];
-            this.members = (await this.$http.get('http://rhos-test.op.redhat.com/api/v1/query?objectClass=rhatPerson&memberOf=*'+this.groupid+'*&attributes=uid,cn')).body.data;
-            this.loading = false;
         }
     });
 
