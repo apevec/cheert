@@ -85,16 +85,21 @@
                     "opacity": "0.1",
                     "filter": "alpha(opacity=10)"
                 },
-                display: ["uid", "cn"],
+                display: ["uid", "cn", "rhatNickName"],
                 emptyTemplate: function (query) {
                     if (query.length > 0) {
                         return 'No results found for "' + query + '"';
                     }
                 },
                 template: function (query, item) {
+                    onIrc = '';
+                    if (item.rhatNickName != null && item.rhatNickName[0] !== item.uid[0]) {
+                        onIrc = '<span class="rhatNickName"> <small>also known as <strong>{{`{{rhatNickName}}`}}</strong> on irc</small></span>';
+                    };
                     return  '<span>' +
                         '<span class="cn">{{`{{cn}}`}}</span>' +
                         '<span class="uid"> <small>({{`{{uid}}`}}@redhat.com)</small></span>' +
+                        onIrc +
                         '</span>'
                 },
                 source: {
